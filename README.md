@@ -2,7 +2,7 @@
 
 ## APPROACH
 
-Setup MongoDB database for windows
+### Setup MongoDB database for windows
 
 * Installed npm
 `npm install`
@@ -13,3 +13,10 @@ Setup MongoDB database for windows
 
 * Installed the remaining dependencies
 `npm install --save body-parser express moment mongoose morgan`
+
+### Give the database data
+
+* Setup a populate.js file with user data.
+
+* Saved that data to the mongodb database by running:
+`node_modules/babel-cli/bin/babel-node.js populate.js`
