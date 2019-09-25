@@ -2,12 +2,22 @@ const express = require("express")
 const User = require("../models/users")
 const router = express.Router()
 
-//GETS A USER
+//GET BACK ALL THE USERS
 router.get('/', async (req, res) => {
   try {
     const users = await User.find()
     res.json(users)
   } catch(err) {
+    res.json({ message: err })
+  }
+})
+
+//GET BACK A SPECIFIC USER
+router.get("/:userId", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId)
+    res.json(user)
+  } catch (err) {
     res.json({ message: err })
   }
 })
