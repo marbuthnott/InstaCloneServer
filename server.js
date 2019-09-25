@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const app = express()
 
+// Take the body of the HTTP response and parse it
 app.use(bodyParser.json())
 
 // import post routes

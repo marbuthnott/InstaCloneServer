@@ -19,5 +19,4 @@ var userSchema = mongoose.Schema({
 });
 
 // Export Mongoose model
-const User = mongoose.model("User", userSchema)
-module.exports.User = User
+module.exports = mongoose.model("User", userSchema)
