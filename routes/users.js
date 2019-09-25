@@ -37,4 +37,14 @@ router.post("/", async (req, res) => {
   }
 })
 
+//DELETES A SPECIFIC USER
+router.delete("/:userId", async (req, res) => {
+  try {
+    const removedUser = await User.remove( {_id: req.params.userId} )
+    res.json(removedUser)
+  } catch (err) {
+    res.json({ message: err })
+  }
+})
+
 module.exports = router
