@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const { User } = require("./models/user")
+const { User } = require("./models/users")
 
 const users = [
   {
@@ -20,7 +20,7 @@ const users = [
 ]
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/users');
+mongoose.connect('mongodb://localhost/instaclone');
 
 // Go through each user
 users.map(data => {

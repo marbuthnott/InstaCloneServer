@@ -1,14 +1,21 @@
 const mongoose = require("mongoose")
-const Schema = mongoose.Schema
 
 // Define movie schema
-var userSchema = new Schema({
+var userSchema = mongoose.Schema({
   email: {
     type: String,
     unique: true,
+    required: true
   },
-  username: String,
-  password: String
+  username: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 // Export Mongoose model

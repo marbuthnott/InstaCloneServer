@@ -18,5 +18,7 @@
 
 * Setup a populate.js file with user data.
 
+* Build the user.js model.
+
 * Saved that data to the mongodb database by running:
 `node_modules/babel-cli/bin/babel-node.js populate.js`
