@@ -4,11 +4,12 @@ const router = express.Router()
 
 //GETS A USER
 router.get('/', async (req, res) => {
-  res.send('User page');
-})
-
-router.get('/:username', async (req, res) => {
-  res.send(`User page ${req.params.username}`);
+  try {
+    const users = await User.find()
+    res.json(users)
+  } catch(err) {
+    res.json({ message: err })
+  }
 })
 
 //SUBMITS A USER
