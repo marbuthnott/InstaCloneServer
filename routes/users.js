@@ -37,11 +37,35 @@ router.post("/", async (req, res) => {
   }
 })
 
+router.post("/signup", async (req, res) => {
+  const user = new User({
+    email: req.body.email,
+    username: req.body.username,
+    password: req.body.password
+  })
+  try {
+    const savedUser = await user.save()
+    res.json(savedUser)
+  } catch (err) {
+    res.json({ message: err })
+  }
+})
+
 //DELETES A SPECIFIC USER
 router.delete("/:userId", async (req, res) => {
   try {
     const removedUser = await User.remove( {_id: req.params.userId} )
     res.json(removedUser)
+  } catch (err) {
+    res.json({ message: err })
+  }
+})
+
+//UPDATES A SPECIFIC USER
+router.patch("/:userId", async (req, res) => {
+  try {
+    const updatedUser = await User.updateOne( {_id: req.params.userId}, { $set: { username: req.body.username } } )
+    res.json(updatedUser)
   } catch (err) {
     res.json({ message: err })
   }

@@ -22,3 +22,7 @@
 
 * Saved that data to the mongodb database by running:
 `node_modules/babel-cli/bin/babel-node.js populate.js`
+
+### Host on heroku
+
+* Install [Heroku](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)

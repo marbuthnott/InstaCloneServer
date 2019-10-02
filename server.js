@@ -1,24 +1,24 @@
-// Initialize http server
+// INITIALISE HTTP SERVER
 const express = require("express")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const app = express()
 
-// Take the body of the http response and parse it
+// MIDDLEWARES
 app.use(bodyParser.json())
 
-// import post routes
+// IMPORT USER ROUTES
 const userRoute = require("./routes/users");
 app.use("/user", userRoute)
 
-// Connect to MongoDB
+// CONNECT TO MONGODB
 mongoose.connect('mongodb://localhost/instaclone',
   { useNewUrlParser: true,
     useUnifiedTopology: true
   },
   () => console.log("Connected to DB!"))
 
-// Launch the server on port 3000
+// LAUNCH THE SERVER ON PORT 3000
 const PORT = process.env.PORT || 3000
 const server = app.listen(PORT, () => {
   const { address, port } = server.address()
